@@ -1,6 +1,9 @@
 # macOS Launcher
 
-Run the generator to create a clickable app launcher:
+Source script:
+- `macos/GraphifyLauncher.applescript`
+
+Run the generator to create a clickable native app:
 
 ```bash
 ./scripts/create_macos_app.sh

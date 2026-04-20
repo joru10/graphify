@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: setup setup-core setup-all run update watch launcher app
+.PHONY: setup setup-core setup-all run update watch app open-app
 
 setup:
 	./scripts/setup_local.sh recommended
@@ -20,8 +20,8 @@ update:
 watch:
 	./scripts/run_graphify.sh . --watch
 
-launcher:
-	./scripts/launch_graphify_macos.sh
-
 app:
 	./scripts/create_macos_app.sh
+
+open-app: app
+	open "macos/Graphify Launcher.app"

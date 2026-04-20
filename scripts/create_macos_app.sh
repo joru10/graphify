@@ -3,21 +3,16 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP_DIR="$ROOT_DIR/macos/Graphify Launcher.app"
-LAUNCHER="$ROOT_DIR/scripts/launch_graphify_macos.sh"
+APPLESCRIPT_SRC="$ROOT_DIR/macos/GraphifyLauncher.applescript"
 
-if [[ ! -x "$LAUNCHER" ]]; then
-  echo "Missing launcher script: $LAUNCHER"
+if [[ ! -f "$APPLESCRIPT_SRC" ]]; then
+  echo "Missing AppleScript source: $APPLESCRIPT_SRC"
   exit 1
 fi
 
 TMP_SCRIPT="$(mktemp)"
-cat > "$TMP_SCRIPT" <<APPLESCRIPT
-set launcher to POSIX file "$LAUNCHER" as text
-tell application "Terminal"
-  activate
-  do script quoted form of POSIX path of launcher
-end tell
-APPLESCRIPT
+ROOT_ESCAPED="$(printf '%s' "$ROOT_DIR" | sed 's/[&/]/\\&/g')"
+sed "s/__ROOT_DIR__/$ROOT_ESCAPED/g" "$APPLESCRIPT_SRC" > "$TMP_SCRIPT"
 
 rm -rf "$APP_DIR"
 osacompile -o "$APP_DIR" "$TMP_SCRIPT"
