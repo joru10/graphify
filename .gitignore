@@ -23,3 +23,5 @@ docs/superpowers/
 openspec/
 uv.lock
 macos/*.app
+
+macos/GraphifyDesktop/.build/
