@@ -24,4 +24,4 @@ app:
 	./scripts/create_macos_app.sh
 
 open-app: app
-	open "macos/Graphify Launcher.app"
+	open "macos/Graphify Desktop.app"

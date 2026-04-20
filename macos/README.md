@@ -1,7 +1,7 @@
 # macOS Launcher
 
-Source script:
-- `macos/GraphifyLauncher.applescript`
+Native app source:
+- `macos/GraphifyDesktop/` (SwiftUI desktop UI)
 
 Run the generator to create a clickable native app:
 
@@ -10,4 +10,4 @@ Run the generator to create a clickable native app:
 ```
 
 Generated output:
-- `macos/Graphify Launcher.app` (ignored by git)
+- `macos/Graphify Desktop.app` (ignored by git)

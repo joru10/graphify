@@ -29,20 +29,22 @@ make update
 make watch
 ```
 
-## 3) Create a native clickable Mac app (no CLI)
+## 3) Create the native Mac desktop app (real UI)
 
 ```bash
 make app
 ```
 
 This creates:
-- `/Users/joru2/Applications/Graphify/macos/Graphify Launcher.app`
+- `/Users/joru2/Applications/Graphify/macos/Graphify Desktop.app`
 
 Double-click it to:
 - choose target folder
 - choose mode (full/update)
 - run Graphify directly in the app (no Terminal/CLI window)
-- auto-open `graphify-out/GRAPH_REPORT.md` and `graphify-out/graph.html` when complete
+- view live logs in-app
+- view the graph in-app
+- view report text in-app
 
 ## 4) Push to your GitHub fork
 
@@ -52,7 +54,7 @@ git remote -v
 # if needed, point origin to your repo:
 # git remote set-url origin https://github.com/<your-user>/graphify.git
 
-git add scripts Makefile LOCAL_SETUP.md macos/GraphifyLauncher.applescript
+git add scripts Makefile LOCAL_SETUP.md macos/GraphifyDesktop
 # include macos app wrapper source changes only (not required to track generated .app)
 git commit -m "Add local setup scripts and macOS launcher workflow"
 git push origin v4

@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/GraphifyDesktop.d",
+    "object": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/GraphifyDesktop.o",
+    "swift-dependencies": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/master.swiftdeps"
+  },
+  "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/Sources/GraphifyDesktop/main.swift": {
+    "object": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/main.swift.o",
+    "swiftmodule": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/main.swiftdeps",
+    "diagnostics": "/Users/joru2/Applications/Graphify/macos/GraphifyDesktop/.build/arm64-apple-macosx/release/GraphifyDesktop.build/main.dia"
+  }
+}
