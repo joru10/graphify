@@ -2,7 +2,13 @@ import scala.collection.mutable.ListBuffer
 
 case class Config(baseUrl: String, timeout: Int)
 
-class HttpClient(config: Config) {
+trait Loggable
+abstract class BaseClient
+
+class HttpClient(config: Config) extends BaseClient with Loggable {
+  val source: Config = config
+  var fallback: BaseClient = null
+
   def get(path: String): String = {
     buildRequest("GET", path)
   }
