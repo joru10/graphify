@@ -1062,7 +1062,11 @@ def _reenter_main() -> None:
 
 
 def dispatch_command(cmd: str) -> None:
-    if cmd == "provider":
+    if cmd == "second-brain":
+        from graphify.second_brain import main as second_brain_main
+
+        second_brain_main(sys.argv[2:])
+    elif cmd == "provider":
         from graphify.llm import _custom_providers_path, BACKENDS
         import json as _json
         subcmd = sys.argv[2] if len(sys.argv) > 2 else ""

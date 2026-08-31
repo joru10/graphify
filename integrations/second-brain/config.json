@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "scope": "compiled",
+  "include": [
+    "wiki",
+    "spaces",
+    "system"
+  ],
+  "extensions": [
+    ".md",
+    ".mdx",
+    ".qmd",
+    ".markdown",
+    ".txt"
+  ],
+  "exclude": [
+    "raw",
+    "_Import",
+    "assets",
+    "graph",
+    ".git",
+    ".obsidian",
+    ".trash",
+    "node_modules",
+    ".venv",
+    "__pycache__",
+    ".cache",
+    "cache"
+  ],
+  "secret_filename_patterns": [
+    ".env",
+    ".env.*",
+    "*secret*",
+    "*credential*",
+    "*token*",
+    "*password*",
+    "*apikey*",
+    "*api_key*",
+    "*private-key*",
+    "*private_key*"
+  ],
+  "output_dir": "graph/graphify/compiled",
+  "max_files": 25000,
+  "max_file_bytes": 20971520,
+  "semantic_extraction": false,
+  "policy": {
+    "source_of_truth": "Second Brain vault",
+    "derived_surface": "Graphify relationship graph",
+    "raw_evidence_indexed": false,
+    "external_model_calls": false,
+    "agent_writes_to_graph": false
+  },
+  "notes": [
+    "compiled scope indexes wiki, spaces, and system Markdown only",
+    "raw, _Import, assets, graph, caches, and secret-shaped filenames are excluded",
+    "expand scope only through an explicit policy review"
+  ]
+}

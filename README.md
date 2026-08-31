@@ -465,6 +465,48 @@ The commit and branch-switch rebuilds run in the background and return immediate
 
 ---
 
+## Second Brain integration
+
+Graphify can maintain a shared, read-only relationship index over a local
+Second Brain vault for OpenClaw, Hermes, and other MCP-capable agents. The
+integration lives in [`integrations/second-brain/`](integrations/second-brain/)
+and keeps Second Brain as the source of truth:
+
+```text
+Second Brain (wiki/ + spaces/ + selected system/ Markdown)
+        -> deterministic local extraction
+graph/graphify/compiled/graph.json
+        -> local MCP stdio server
+OpenClaw / Hermes / other agents
+```
+
+The `compiled` policy excludes raw evidence, imports, assets, graph outputs,
+caches, and secret-shaped filenames. Semantic extraction is disabled, so the
+scheduled refresh makes no external model or API calls. Graphify output is
+derived state and is not copied into REM, RL, or GBrain automatically.
+On large vaults where the optional Leiden backend is not installed, the
+integration uses deterministic connected components instead of NetworkX
+Louvain, avoiding an unbounded refresh while preserving reachability groups.
+The selected method is recorded in `manifest.json`; the similarly expensive
+betweenness-based question heuristic is skipped above the same 10,000-node
+bound.
+
+```bash
+graphify second-brain init
+graphify second-brain status
+graphify second-brain update
+graphify second-brain serve
+```
+
+On macOS, the supplied LaunchAgent template can run the snapshot-aware update
+periodically. The active host installation uses the label
+`com.graphify.second-brain-refresh` and a 15-minute interval. OpenClaw and
+Hermes use per-agent MCP stdio processes against the same generated graph; no
+network listener or Graphify API key is required. See the integration README
+for the runtime paths and policy details.
+
+---
+
 ## Using the graph directly
 
 ```bash
